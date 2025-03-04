@@ -1,0 +1,122 @@
+{% comment %}
+  Warranty Activation Form - Shopify Liquid Template
+  
+  Instructions:
+  1. Create a new page in your Shopify store
+  2. Add this code as a section or directly in the page template
+  3. No need to rename any files - just upload warranty-activation.js as is
+{% endcomment %}
+
+<div id="warranty-activation-app"></div>
+
+<script>
+  // Load the warranty activation app
+  const script = document.createElement('script');
+  script.src = "{{ 'warranty-activation.js' | asset_url }}";
+  script.async = true;
+  document.body.appendChild(script);
+</script>
+
+<style>
+  /* Kella theme integration styles */
+  #warranty-activation-app {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: var(--font-body-family);
+  }
+  
+  /* Ensure the form inherits Kella theme styles */
+  #warranty-activation-app .btn--primary {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    border-radius: var(--buttons-radius-outset);
+    font-family: var(--font-button-family);
+    font-weight: var(--font-button-weight);
+    font-style: var(--font-button-style);
+    padding: var(--buttons-padding-vertical) var(--buttons-padding-horizontal);
+    min-width: 12rem;
+  }
+  
+  #warranty-activation-app .btn--secondary {
+    background-color: transparent;
+    color: var(--color-button);
+    border: 1px solid var(--color-button);
+    border-radius: var(--buttons-radius-outset);
+    font-family: var(--font-button-family);
+    font-weight: var(--font-button-weight);
+    font-style: var(--font-button-style);
+    padding: var(--buttons-padding-vertical) var(--buttons-padding-horizontal);
+    min-width: 12rem;
+  }
+  
+  #warranty-activation-app .field__input,
+  #warranty-activation-app .select__select {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border: var(--inputs-border-width) solid var(--color-border);
+    border-radius: var(--inputs-radius);
+    font-family: var(--font-body-family);
+    padding: var(--inputs-padding-vertical) var(--inputs-padding-horizontal);
+  }
+  
+  #warranty-activation-app .form__label {
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight-bold);
+    color: var(--color-foreground);
+  }
+  
+  /* Fix layout issues */
+  .page-width {
+    max-width: 100% !important;
+  }
+  
+  /* Override any conflicting styles */
+  #warranty-activation-app .warranty-activation-form {
+    font-family: var(--font-body-family, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif) !important;
+  }
+  
+  /* Ensure proper spacing */
+  #warranty-activation-app .form-container {
+    margin: 0 auto;
+  }
+  
+  /* Fix progress bar */
+  #warranty-activation-app .progress-steps {
+    overflow: visible;
+  }
+  
+  /* Fix button alignment */
+  #warranty-activation-app .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  
+  /* Fix grid layout */
+  @media (min-width: 768px) {
+    #warranty-activation-app .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    #warranty-activation-app .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    #warranty-activation-app .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    #warranty-activation-app .form-grid.three-columns {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+</style>
