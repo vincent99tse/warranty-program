@@ -1,0 +1,80 @@
+{% comment %}
+  Warranty Activation Form - Shopify Liquid Template
+  
+  Instructions:
+  1. Create a new page in your Shopify store
+  2. Add this code as a section or directly in the page template
+  3. Customize the styling to match your store's theme
+{% endcomment %}
+
+<div id="warranty-activation-app"></div>
+
+<script>
+  // Load the React app bundle
+  const script = document.createElement('script');
+  script.src = "{{ 'warranty-activation.js' | asset_url }}";
+  script.async = true;
+  document.body.appendChild(script);
+  
+  // Load the CSS
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = "{{ 'warranty-activation.css' | asset_url }}";
+  document.head.appendChild(link);
+</script>
+
+<style>
+  /* Kella theme integration styles */
+  #warranty-activation-app {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: var(--font-body-family);
+  }
+  
+  /* Ensure the form inherits Kella theme styles */
+  #warranty-activation-app .btn--primary {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    border-radius: var(--buttons-radius-outset);
+    font-family: var(--font-button-family);
+    font-weight: var(--font-button-weight);
+    font-style: var(--font-button-style);
+    padding: var(--buttons-padding-vertical) var(--buttons-padding-horizontal);
+    min-width: 12rem;
+  }
+  
+  #warranty-activation-app .btn--secondary {
+    background-color: transparent;
+    color: var(--color-button);
+    border: 1px solid var(--color-button);
+    border-radius: var(--buttons-radius-outset);
+    font-family: var(--font-button-family);
+    font-weight: var(--font-button-weight);
+    font-style: var(--font-button-style);
+    padding: var(--buttons-padding-vertical) var(--buttons-padding-horizontal);
+    min-width: 12rem;
+  }
+  
+  #warranty-activation-app .field__input,
+  #warranty-activation-app .select__select {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border: var(--inputs-border-width) solid var(--color-border);
+    border-radius: var(--inputs-radius);
+    font-family: var(--font-body-family);
+    padding: var(--inputs-padding-vertical) var(--inputs-padding-horizontal);
+  }
+  
+  #warranty-activation-app .form__label {
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight-bold);
+    color: var(--color-foreground);
+  }
+  
+  /* Hide Shopify theme elements that might interfere with the app */
+  .page-width {
+    max-width: 100% !important;
+  }
+</style>

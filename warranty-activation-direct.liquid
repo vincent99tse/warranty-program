@@ -1,0 +1,455 @@
+{% comment %}
+  Warranty Activation Form - Direct Embedding Approach
+  This template embeds the JavaScript and CSS directly to avoid asset URL issues
+{% endcomment %}
+
+<div id="warranty-activation-app"></div>
+
+<script>
+  // Create a React root element
+  const rootElement = document.getElementById('warranty-activation-app');
+  
+  // Initialize React app
+  document.addEventListener('DOMContentLoaded', function() {
+    // Create a div to hold the warranty activation form
+    const appContainer = document.createElement('div');
+    appContainer.className = 'warranty-activation-form';
+    rootElement.appendChild(appContainer);
+    
+    // Create the progress bar
+    const progressBar = document.createElement('div');
+    progressBar.className = 'progress-bar-container';
+    progressBar.innerHTML = `
+      <div class="progress-steps">
+        ${[1, 2, 3, 4, 5, 6, 7, 8].map(step => `
+          <div class="progress-step ${step === 1 ? 'active' : ''}">
+            <div class="step-number">${step}</div>
+            <span class="step-label">Step ${step}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    appContainer.appendChild(progressBar);
+    
+    // Create the form container
+    const formContainer = document.createElement('div');
+    formContainer.className = 'form-container';
+    appContainer.appendChild(formContainer);
+    
+    // Create the initial step content
+    formContainer.innerHTML = `
+      <div class="grid-container">
+        <!-- Left Column -->
+        <div class="info-column">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4z"></path></svg>
+          </div>
+          <h1 class="main-heading">
+            Activate Your Warranty and get a FREE Gifts
+          </h1>
+          <h2 class="sub-heading">
+            NO Shipping Charges, NO Hidden Fees, No Credit Card Required!
+          </h2>
+          <p class="disclaimer">
+            *Conditions Apply: To qualify, participants agree to send us their experience with the previously purchased product that they have been actively using for at least 5 days*
+          </p>
+          <div class="divider"></div>
+          <div class="conditions">
+            <p class="condition-item">
+              1- Only for customers that bought our product at Official Seller on Amazon.com
+            </p>
+            <p class="condition-item">
+              2- Each customer can only claim one FREE GIFT for one product.
+            </p>
+          </div>
+          <div class="divider"></div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="form-column">
+          <h1 class="form-heading">
+            Activate Your Warranty and get a FREE Gifts Now!
+          </h1>
+          <p class="form-subheading">
+            Offer Limited to Existing Customers Only
+          </p>
+          <form class="form">
+            <div class="form-field">
+              <label for="product" class="form__label">
+                Which Product Did You Purchase
+              </label>
+              <select
+                id="product"
+                name="product"
+                class="select__select"
+              >
+                <option value="">Select a product</option>
+                <option value="1">Product A</option>
+                <option value="2">Product B</option>
+                <option value="3">Product C</option>
+                <option value="4">Product D</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="name" class="form__label">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name...."
+                class="field__input"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="email" class="form__label">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email...."
+                class="field__input"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="orderId" class="form__label">
+                Order Id
+              </label>
+              <input
+                type="text"
+                id="orderId"
+                name="orderId"
+                placeholder="Enter your order id...."
+                class="field__input"
+              />
+            </div>
+
+            <div class="form-field">
+              <a 
+                href="https://www.amazon.com/gp/css/order-history" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="amazon-link"
+              >
+                Find Your Amazon Order Number 
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-small"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn--primary"
+            >
+              Activate Now
+            </button>
+
+            <p class="privacy-note">
+              *We don't share your personal info with anyone. Check our Privacy Policy for more information.*
+            </p>
+          </form>
+        </div>
+      </div>
+    `;
+    
+    // Add event listener to the button
+    const activateButton = formContainer.querySelector('.btn--primary');
+    activateButton.addEventListener('click', function() {
+      alert('This is a simplified version of the warranty activation form. In the full version, this would proceed to the next step.');
+    });
+  });
+</script>
+
+<style>
+  /* Base styles */
+  :root {
+    --color-primary: #4f46e5;
+    --color-success: #10b981;
+    --color-text: #374151;
+    --color-text-light: #6b7280;
+    --border-radius: 0.375rem;
+    --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  /* Main Container */
+  .warranty-activation-form {
+    font-family: var(--font-body-family, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif);
+    color: var(--color-text);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  /* Progress Bar */
+  .progress-bar-container {
+    margin-bottom: 2.5rem;
+  }
+
+  .progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #e5e7eb;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  .progress-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-number {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background-color: #e5e7eb;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .step-label {
+      display: block;
+    }
+  }
+
+  .progress-step.active .step-number {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .progress-step.completed .step-number {
+    background-color: #10b981;
+    color: white;
+  }
+
+  /* Form Container */
+  .form-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+  }
+
+  /* Grid Container */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Info Column */
+  .info-column {
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    border-radius: var(--border-radius);
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--color-primary);
+  }
+
+  .main-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .sub-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .disclaimer {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 1.5rem 0;
+  }
+
+  .conditions {
+    margin-bottom: 1.5rem;
+  }
+
+  .condition-item {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Form Column */
+  .form-column {
+    padding: 1.5rem;
+  }
+
+  .form-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-subheading {
+    font-size: 1rem;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .form-field {
+    margin-bottom: 1.5rem;
+  }
+
+  .form__label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+
+  .field__input, .select__select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+
+  .btn--primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+  }
+
+  .privacy-note {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .amazon-link {
+    display: inline-flex;
+    align-items: center;
+    color: #3b82f6;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .amazon-link:hover {
+    text-decoration: underline;
+  }
+
+  .icon-small {
+    height: 1rem;
+    width: 1rem;
+    margin-left: 0.25rem;
+  }
+
+  /* Kella theme integration styles */
+  #warranty-activation-app {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: var(--font-body-family, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif);
+  }
+  
+  /* Ensure the form inherits Kella theme styles */
+  #warranty-activation-app .btn--primary {
+    background-color: var(--color-button, #3b82f6);
+    color: var(--color-button-text, white);
+    border-radius: var(--buttons-radius-outset, 0.375rem);
+    font-family: var(--font-button-family, inherit);
+    font-weight: var(--font-button-weight, 500);
+    font-style: var(--font-button-style, normal);
+    padding: 0.75rem 1.5rem;
+    min-width: 12rem;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+  }
+  
+  #warranty-activation-app .btn--secondary {
+    background-color: transparent;
+    color: var(--color-button, #3b82f6);
+    border: 1px solid var(--color-button, #3b82f6);
+    border-radius: var(--buttons-radius-outset, 0.375rem);
+    font-family: var(--font-button-family, inherit);
+    font-weight: var(--font-button-weight, 500);
+    font-style: var(--font-button-style, normal);
+    padding: 0.75rem 1.5rem;
+    min-width: 12rem;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+  }
+</style>

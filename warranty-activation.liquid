@@ -1,0 +1,247 @@
+{% comment %}
+  Warranty Activation Form - Shopify Liquid Template
+{% endcomment %}
+
+<div id="warranty-activation-app"></div>
+
+<script src="{{ 'index-CQp-3bsu.js' | asset_url }}"></script>
+<link rel="stylesheet" href="{{ 'index-Dd1Hr2R2.css' | asset_url }}">
+
+<style>
+  /* Kella theme integration styles */
+  #warranty-activation-app {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: var(--font-body-family, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif);
+  }
+  
+  /* Ensure the form inherits Kella theme styles */
+  #warranty-activation-app .btn--primary {
+    background-color: var(--color-button, #3b82f6);
+    color: var(--color-button-text, white);
+    border-radius: var(--buttons-radius-outset, 0.375rem);
+    font-family: var(--font-button-family, inherit);
+    font-weight: var(--font-button-weight, 500);
+    font-style: var(--font-button-style, normal);
+    padding: 0.75rem 1.5rem;
+    min-width: 12rem;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+  }
+  
+  #warranty-activation-app .btn--secondary {
+    background-color: transparent;
+    color: var(--color-button, #3b82f6);
+    border: 1px solid var(--color-button, #3b82f6);
+    border-radius: var(--buttons-radius-outset, 0.375rem);
+    font-family: var(--font-button-family, inherit);
+    font-weight: var(--font-button-weight, 500);
+    font-style: var(--font-button-style, normal);
+    padding: 0.75rem 1.5rem;
+    min-width: 12rem;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  #warranty-activation-app .field__input,
+  #warranty-activation-app .select__select {
+    background-color: var(--color-background, white);
+    color: var(--color-foreground, #374151);
+    border: 1px solid var(--color-border, #d1d5db);
+    border-radius: var(--inputs-radius, 0.375rem);
+    font-family: var(--font-body-family, inherit);
+    padding: 0.75rem 1rem;
+    width: 100%;
+  }
+  
+  #warranty-activation-app .form__label {
+    font-family: var(--font-body-family, inherit);
+    font-weight: var(--font-body-weight-bold, 600);
+    color: var(--color-foreground, #374151);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Fix layout issues */
+  .page-width {
+    max-width: 100% !important;
+  }
+  
+  /* Override any conflicting styles */
+  #warranty-activation-app .warranty-activation-form {
+    font-family: var(--font-body-family, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif) !important;
+  }
+  
+  /* Ensure proper spacing */
+  #warranty-activation-app .form-container {
+    margin: 0 auto;
+  }
+  
+  /* Fix progress bar */
+  #warranty-activation-app .progress-steps {
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  #warranty-activation-app .progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #e5e7eb;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+  
+  #warranty-activation-app .progress-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #warranty-activation-app .step-number {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background-color: #e5e7eb;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  #warranty-activation-app .progress-step.active .step-number {
+    background-color: var(--color-primary, #4f46e5);
+    color: white;
+  }
+  
+  #warranty-activation-app .progress-step.completed .step-number {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  /* Fix button alignment */
+  #warranty-activation-app .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  
+  /* Fix grid layout */
+  @media (min-width: 768px) {
+    #warranty-activation-app .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    #warranty-activation-app .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    #warranty-activation-app .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    #warranty-activation-app .form-grid.three-columns {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  /* Additional fixes for common issues */
+  #warranty-activation-app .info-column,
+  #warranty-activation-app .form-column {
+    padding: 1.5rem;
+  }
+  
+  #warranty-activation-app .info-column {
+    background-color: #f9fafb;
+    border-radius: 0.375rem;
+  }
+  
+  #warranty-activation-app .icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  #warranty-activation-app .icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--color-primary, #4f46e5);
+  }
+  
+  #warranty-activation-app .main-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  #warranty-activation-app .sub-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  #warranty-activation-app .divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 1.5rem 0;
+  }
+  
+  #warranty-activation-app .form-container {
+    background-color: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+  }
+  
+  /* Star rating fixes */
+  #warranty-activation-app .star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  #warranty-activation-app .star-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  #warranty-activation-app .star-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    color: #d1d5db;
+  }
+  
+  #warranty-activation-app .star-icon.filled {
+    color: #f59e0b;
+    fill: #f59e0b;
+  }
+</style>
